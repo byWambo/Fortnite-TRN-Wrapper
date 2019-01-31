@@ -1,3 +1,5 @@
+from .models.store import Store
+
 import fortnite
 import requests
 
@@ -20,7 +22,7 @@ class API:
     def get_store(self):
         url = 'https://api.fortnitetracker.com/v1/store'
         respond = requests.get(url, headers=self.header)
-        return respond.json()
+        return Store(respond.json())
 
     def get_challenges(self):
         url = 'https://api.fortnitetracker.com/v1/challenges '
